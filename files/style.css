@@ -1,0 +1,212 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+.displayFlex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+.center{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#body{
+    width: 80%;
+    min-height: 94vh;
+    background-color: #F7FAFF;
+    padding: 25px 10%;
+}
+
+
+/* NAVIGATION HEADER */
+
+.header_wrapper{
+    position: relative;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+/* Buttons in header and wrapper*/
+
+.logged{
+    align-items: center;
+}
+
+.logged h1{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.btnsHeader{
+    font-size: 18px;
+    font-weight: 500;
+    color: #F7FAFF;
+    background-color: #FF6359;
+    padding: 15px 30px;
+    margin-left: 25px;
+    border-radius: 5px;
+}
+
+/* //////////////////////////////////////////////////////// */
+/* If user is not logged in in index.php */
+
+.notLoggedIndex{
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.notLoggedIndex h1{
+    color: black;
+}
+
+/* //////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////// */
+/* Login Form */
+.loginForm{
+    padding: 30px;
+    width: 400px;
+    height: auto;
+    justify-content: center;
+    align-content: flex-start;
+    border: 2px solid #65BCC0;
+    border-radius: 5px;
+}
+
+/* Inputs wrapper */
+.inputWrapper{
+    width: 100%;
+    height: 80px;
+    padding-bottom: 10px;
+}
+
+.inputWrapper label{
+    font-size: 18px;
+    font-weight: 500;
+}
+.inputWrapper input{
+    width: 100%;
+    border-bottom: 1px solid #5B9CD2;
+    padding: 5px;
+}
+.loginBTN{
+    font-size: 18px;
+    font-weight: 500;
+    color: #F7FAFF;
+    background-color: #FF6359;
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* //////Error paragraph */
+.errorP{
+    margin-top: 3px;
+    color: red!important;
+    font-size: 13px;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/*When use is logged in, upper div*/
+
+.wrapperData{
+    width: 100%;
+    margin: 50px 0;
+    padding: 25px 0;
+    justify-content: space-between;
+    align-content: center;
+}
+.child{
+    position: relative;
+    padding: 35px;
+    width: 300px;
+    border-radius: 5px;
+}
+.One{
+    background-color: #3B76EF;
+}
+.Two{
+    background-color: #63C7FF;
+}
+.Three{
+    background-color: #A66DD4;
+}
+
+.child h2{
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.child p{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/*When use is logged in, Two button to select all customers or just user customers*/
+
+.wrapperButtons{
+    width: 100%;
+    margin: 0 0 25px 0;
+}
+
+
+.btn1{
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: #FF6359;
+}
+.btn2{
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 15px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #FF6359;
+}
+.btnSelected{
+    background-color: #ffffff;
+    color: #FF6359;
+    border-bottom: 2px solid #FF6359;
+}
