@@ -11,8 +11,9 @@
             $this->connent = $db;
         }
 
+        //Select all customers from all users
         public function selectAllCustomers(){
-            $sql = "SELECT $this->table.*,users.user_username FROM $this->table INNER JOIN users WHERE $this->table.user_id = users.user_id";
+            $sql = "SELECT $this->table.*,users.user_username FROM $this->table INNER JOIN users WHERE $this->table.user_id = users.user_id order by kun_changed desc";
 
             $statement = $this->connent->prepare($sql);
             $statement->execute();
@@ -20,9 +21,9 @@
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
 
-
+        //Select customers from one user
         public function selectUserCustomers($user_id){
-            $sql = "SELECT $this->table.*,users.user_username FROM $this->table INNER JOIN users WHERE $this->table.user_id = $user_id  AND $this->table.user_id = users.user_id";
+            $sql = "SELECT $this->table.*,users.user_username FROM $this->table INNER JOIN users WHERE $this->table.user_id = $user_id  AND $this->table.user_id = users.user_id order by kun_changed desc";
 
             $statement = $this->connent->prepare($sql);
             $statement->execute();
@@ -30,7 +31,7 @@
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
 
-
+        //Delete customer
         public function deleteCustomers($id){
             try{
                 $sql = "DELETE FROM $this->table WHERE kun_id = $id";
@@ -43,7 +44,7 @@
             }
         }
 
-
+        //Insert new customer
         public function insertCustomer($data){
             $dataArray = [
                 htmlspecialchars($_SESSION["userData"]["user_id"]),
@@ -68,6 +69,7 @@
             }
         }
 
+        //Edit Customer
         public function editCustomer($data,$id){
             $dataArray = [
                 htmlspecialchars($_SESSION["userData"]["user_id"]),
@@ -93,7 +95,7 @@
         }
 
 
-
+        //Select just one customer
         public function selectOneCustomer($customerId){
             $sql = "SELECT * FROM $this->table WHERE kun_id = ?";
 

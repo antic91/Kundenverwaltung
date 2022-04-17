@@ -1,4 +1,5 @@
 <?php 
+    //Validate data from post
     $validateRegister = new ValidateRegister($_POST);
     $errorRegister = $validateRegister->checkRegisterData();
 
@@ -11,14 +12,14 @@
     if($checkUserName){
         $errorRegister["usernameExists"] = "Username already exists";
     }
-
+    //Check email...
     $checkEmail = $insertUser->checkEmail($_POST["email"]);
     if($checkEmail){
         $errorRegister["emailExists"] = "Email already exists";
     }
-
+    
     if(count($errorRegister)==0){
-
+        //if no errors insert..
         $insert = $insertUser->insert($_POST);
 
         if($insert){

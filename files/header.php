@@ -30,18 +30,18 @@
 <body id="body" class="displayFlex">
 
 <header class="header_wrapper displayFlex">
-
+    <!-- If user is logged then diplay logout button say Hi -->
     <?php if(count($_SESSION)>0 && array_key_exists("logged",$_SESSION) && $_SESSION["logged"]):?>
 
         <form class="logged displayFlex" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <h1>Welcome <?php echo $_SESSION["user"]?> </h1>
+            <h1>Hi <?php echo $_SESSION["user"]?> </h1>
             <input class="btnsHeader" type="submit" name="logout" id="logout" value="Logout">
         </form>
 
     <?php else:?>   
-
+        <!-- Else login and register button-->
         <form class="loggedNot displayFlex" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input class="btnsHeader" type="submit" name="login" id="login" value="Login">
+            <input class="btnsHeader margin" type="submit" name="login" id="login" value="Login">
             <input class="btnsHeader" type="submit" name="register" value="Register">
         </form>
 

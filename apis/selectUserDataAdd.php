@@ -1,12 +1,12 @@
 <?php 
-    include_once "../config/connection.php";
-    include_once "../models/users.php";
+    // include_once "../config/connection.php";
+    // include_once "../models/users.php";
 
     
-        
+        //Setting new user_added .. Div under navigation
         $dbCon = new Connection();
 
-        //Update data by user after header
+        
         $user = new Users($dbCon->getDB());
 
 

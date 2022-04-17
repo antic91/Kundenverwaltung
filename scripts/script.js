@@ -41,6 +41,7 @@ function clickedEdit(id){
 function addCustomer(){
    window.location.replace("./add-new.php");
 }
+
 function cancelLocation(){
    console.log(window.location.href)
    window.location.replace("../files/index.php");

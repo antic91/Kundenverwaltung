@@ -22,6 +22,8 @@
 
             return $statement->fetch(PDO::FETCH_ASSOC);
         }
+
+
         //Check if username already exsist
         public function checkUsername($username){
             $sql = "SELECT user_name FROM $this->table WHERE user_username = ?";
@@ -45,6 +47,7 @@
             return $statement->fetch(PDO::FETCH_ASSOC);
         }
 
+        //Insert new user
         public function insert($data){
             $username = htmlspecialchars($data["username"]);
             $password = htmlspecialchars($data["password"]);

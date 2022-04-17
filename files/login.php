@@ -16,14 +16,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <!-- Include Header -->
     <?php include("./header.php");?>
-
+    <!-- Wrapper div for form -->
     <div class="displayFlex notLoggedIndex center" style="height: 550px;">
-
+        <!-- Form with Post request -->
         <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST" class="loginForm">
             
             <div class="inputWrapper displayFlex">
-                <label for="username">Enter your username</label>
+                <label for="username">Enter username</label>
                 <input type="text" name="username" id="username" 
                 value="<?php     if(array_key_exists('username',$_POST)){
                                     echo htmlspecialchars($_POST['username']) ?? '';
@@ -38,7 +39,7 @@
             </div>
 
             <div class="inputWrapper displayFlex">
-                <label for="password">Enter your password</label>
+                <label for="password">Enter password</label>
                 <input type="password" name="password" id="password" >
 
                 <?php if(array_key_exists("password",$errLogin)):?>
@@ -50,7 +51,7 @@
                 <?php endif?>
 
             </div>
-
+           <!-- Input Submit Login -->
             <input type="submit" class="loginBTN" name="submit" value="Login">
 
         </form>

@@ -1,5 +1,5 @@
 <?php 
-
+        //Select all customers from sql
         include_once "../config/connection.php";
         include_once "../models/customers.php";
 

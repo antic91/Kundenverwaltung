@@ -6,9 +6,8 @@
         
         $dbCon = new Connection();
 
-        //Update data by user after header
+        //Setting new user_deleted .. Div under navigation
         $user = new Users($dbCon->getDB());
-
 
         $userData = $user->selectDataUser($_SESSION["userData"]["user_id"]);
         $newDeletedStatus = $userData["user_deleted"]+1;
