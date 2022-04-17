@@ -42,6 +42,68 @@
                 trigger_error("Error in deleting customer!!!");
             }
         }
+
+
+        public function insertCustomer($data){
+            $dataArray = [
+                htmlspecialchars($_SESSION["userData"]["user_id"]),
+                htmlspecialchars($data["companyname"]),
+                htmlspecialchars($data["cPerson"]),
+                htmlspecialchars($data["phone"]),
+                htmlspecialchars($data["street"]),
+                htmlspecialchars($data["town"]),
+                htmlspecialchars($data["plz"]),
+                htmlspecialchars($data["country"]),
+                htmlspecialchars($data["streetNum"])
+            ];
+
+            try{
+                $sql = "INSERT INTO $this->table (user_id, kun_firmename, kun_anspr_person, kun_telefon, kun_adresse, kun_town, kun_plz, kun_country, kun_street_num) VALUES (?,?,?,?,?,?,?,?,?)";
+
+                $statement = $this->connent->prepare($sql);
+                $statement->execute($dataArray);
+                return true;
+            }catch(Error $e){
+                return false;
+            }
+        }
+
+        public function editCustomer($data,$id){
+            $dataArray = [
+                htmlspecialchars($_SESSION["userData"]["user_id"]),
+                htmlspecialchars($data["companyname"]),
+                htmlspecialchars($data["cPerson"]),
+                htmlspecialchars($data["phone"]),
+                htmlspecialchars($data["street"]),
+                htmlspecialchars($data["town"]),
+                htmlspecialchars($data["plz"]),
+                htmlspecialchars($data["country"]),
+                htmlspecialchars($data["streetNum"]),
+                $id
+            ];
+
+            try{
+                $sql = "UPDATE $this->table SET user_id = ?, kun_firmename = ?, kun_anspr_person = ?, kun_telefon = ?, kun_adresse = ?, kun_town = ?, kun_plz = ?, kun_country = ?, kun_street_num = ? WHERE kun_id = ?";
+                $statement = $this->connent->prepare($sql);
+                $statement->execute($dataArray);
+                return true;
+            }catch(Error $e){
+                return false;
+            }
+        }
+
+
+
+        public function selectOneCustomer($customerId){
+            $sql = "SELECT * FROM $this->table WHERE kun_id = ?";
+
+            $statement = $this->connent->prepare($sql);
+
+            $statement->execute([htmlspecialchars($customerId)]);
+
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        }
+
     }
 
 

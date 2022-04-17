@@ -1,7 +1,5 @@
 <?php 
 
-include("../logic/main.php");
-
     if(isset($_GET["login"])){
         echo $_SERVER['PHP_SELF'];
         session_destroy();
@@ -26,7 +24,7 @@ include("../logic/main.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body id="body" class="displayFlex">

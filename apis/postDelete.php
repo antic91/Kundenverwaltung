@@ -3,7 +3,7 @@
     include_once "../config/connection.php";
     include_once "../models/customers.php";
     include_once "../models/users.php";
-
+    
     $data = file_get_contents('php://input');
     
 
@@ -18,13 +18,8 @@
         $deleteCustomer = new Custromers($dbCon->getDB());
         $deleteCustomer->deleteCustomers($id);
 
-        //Update data by user after header
-        $user = new Users($dbCon->getDB());
-        $userData = $user->selectDataUser($_SESSION["userData"]["user_id"]);
-        $newDeletedStatus = $userData["user_deleted"]+1;
-        $user->afterDelete($newDeletedStatus,$_SESSION["userData"]["user_id"]);
-        $_SESSION["user_deleted"] = $newDeletedStatus;
-
+        include_once './selectUserData.php';
+        include_once './deleteChange.php';
         echo $newDeletedStatus;
 
         //Set Array with table data

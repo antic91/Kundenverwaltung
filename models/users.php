@@ -95,6 +95,40 @@
             }
         }
 
+
+         // Edit after add
+         public function afterAdd($value,$id){
+            
+            try{
+                $sql = "UPDATE $this->table SET  user_added = ? WHERE user_id = ?";
+
+                $statement = $this->conn->prepare($sql);
+
+                $statement->execute([htmlspecialchars($value),htmlspecialchars($id)]);
+
+                return true;
+            }catch(Error $e){
+                trigger_error("Error:" . $e);
+            }
+        }
+
+
+         // Edit after edit
+         public function afterEdit($value,$id){
+            
+            try{
+                $sql = "UPDATE $this->table SET  user_edited = ? WHERE user_id = ?";
+
+                $statement = $this->conn->prepare($sql);
+
+                $statement->execute([htmlspecialchars($value),htmlspecialchars($id)]);
+
+                return true;
+            }catch(Error $e){
+                trigger_error("Error:" . $e);
+            }
+        }
+
         
     }
 

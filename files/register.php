@@ -9,37 +9,8 @@
 
     if(isset($_POST["submit"])){
 
-        $validateRegister = new ValidateRegister($_POST);
-        $errorRegister = $validateRegister->checkRegisterData();
+        include_once '../apis/registerApi.php';
 
-        $conn = new Connection();
-
-        $insertUser = new Users($conn->getDB());
-
-        //Checking if username exsists
-        $checkUserName = $insertUser->checkUsername($_POST["username"]);
-        if($checkUserName){
-            $errorRegister["usernameExists"] = "Username already exists";
-        }
-
-        $checkEmail = $insertUser->checkEmail($_POST["email"]);
-        if($checkEmail){
-            $errorRegister["emailExists"] = "Email already exists";
-        }
-
-        if(count($errorRegister)==0){
-
-            $insert = $insertUser->insert($_POST);
-
-            if($insert){
-                session_destroy();
-                header("Location: ./login.php");
-            }else{
-                $errorRegister["notInserted"] = "Error! Data not inserted!";
-            }
-
-
-        }
     }
     
 
@@ -55,7 +26,11 @@
             
             <div class="inputWrapper displayFlex">
                 <label for="username">Enter your username</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" 
+                value="<?php     if(array_key_exists('username',$_POST)){
+                                    echo htmlspecialchars($_POST['username']) ?? '';
+                                }; ?>"
+                >
 
                 <?php if(array_key_exists("username",$errorRegister)):?>
                     <p class="errorP"> <?php echo $errorRegister["username"]?> </p>
@@ -65,7 +40,7 @@
                     <p class="errorP"> <?php echo $errorRegister["usernameExists"]?> </p>
                 <?php endif?>
 
-            </div>
+            </div>  
 
             <div class="inputWrapper displayFlex">
                 <label for="password">Enter your password</label>
@@ -93,7 +68,11 @@
 
             <div class="inputWrapper displayFlex">
                 <label for="email">Enter your Email</label>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" 
+                value="<?php     if(array_key_exists('email',$_POST)){
+                                    echo htmlspecialchars($_POST['email']) ?? '';
+                                }; ?>"
+                >
 
                 <?php if(array_key_exists("email",$errorRegister)):?>
                     <p class="errorP"> <?php echo $errorRegister["email"]?> </p>
@@ -107,8 +86,11 @@
 
             <div class="inputWrapper displayFlex">
                 <label for="name">Enter your Name</label>
-                <input type="text" name="name" id="name">
-
+                <input type="text" name="name" id="name" 
+                value="<?php     if(array_key_exists('name',$_POST)){
+                                    echo htmlspecialchars($_POST['name']) ?? '';
+                                }; ?>"
+                >
                 <?php if(array_key_exists("name",$errorRegister)):?>
                     <p class="errorP"> <?php echo $errorRegister["name"]?> </p>
                 <?php endif?>
@@ -117,8 +99,11 @@
 
             <div class="inputWrapper displayFlex">
                 <label for="lastName">Enter your Lastname</label>
-                <input type="text" name="lastName" id="lastName">
-
+                <input type="text" name="lastName" id="lastName" 
+                value="<?php     if(array_key_exists('lastName',$_POST)){
+                                    echo htmlspecialchars($_POST['lastName']) ?? '';
+                                }; ?>"
+                >
                 <?php if(array_key_exists("lastName",$errorRegister)):?>
                     <p class="errorP"> <?php echo $errorRegister["lastName"]?> </p>
                 <?php endif?>
@@ -127,7 +112,11 @@
 
             <div class="inputWrapper displayFlex">
                 <label for="birthday">Enter your Birthday</label>
-                <input type="date" name="birthday" id="birthday">
+                <input type="date" name="birthday" id="birthday" 
+                value="<?php     if(array_key_exists('birthday',$_POST)){
+                                    echo htmlspecialchars($_POST['birthday']) ?? '';
+                                }; ?>"
+                >
 
                 <?php if(array_key_exists("notInserted",$errorRegister)):?>
                     <p class="errorP"> <?php echo $errorRegister["notInserted"]?> </p>

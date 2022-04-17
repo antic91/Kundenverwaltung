@@ -52,17 +52,7 @@
             }
         }
     
-        private function checkEmail(){
-            $val = trim($this->data["email"]);
-
-            if(empty($val)){
-                $this->addError("email",'Email cannot be empty');
-            }else{
-                if(!filter_var($val,FILTER_VALIDATE_EMAIL)){
-                    $this->addError('email', 'email must be a valid email address');
-                }
-            }
-        }
+        
 
         // private function checkName(){
         //     $val = trim($this->data["name"]);

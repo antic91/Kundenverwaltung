@@ -12,14 +12,14 @@ class Validate{
         if(empty($val)){
             $this->addError("$key","$value cannot be empty");
         }else{
-
-            if($key=="name" || $key = "lastName"){
+            $keyToShow = $key;
+            if($key=="name" || $key = "lastName" || $key = "cPerson" || $key = "street" || $key = "town"){
                 if(!preg_match('/^[a-zA-Z]{0,150}$/',$val)){
-                    $this->addError("name",'Name must be 6-12 chars & alphabetic');
+                    $this->addError("$keyToShow","$value must be 0-150 chars & alphabetic");
                 }
             }else{
                 if(!preg_match('/^[a-zA-Z]{6,12}$/',$val)){
-                    $this->addError("$key","$value must be 6-12 chars & alphabetic");
+                    $this->addError("$keyToShow","$value must be 6-12 chars & alphabetic");
                 }
             }
         }
@@ -40,6 +40,18 @@ class Validate{
 
     protected function addError($key,$value){
         $this->errors[$key] = $value;
+    }
+
+    protected function checkEmail(){
+        $val = trim($this->data["email"]);
+
+        if(empty($val)){
+            $this->addError("email",'Email cannot be empty');
+        }else{
+            if(!filter_var($val,FILTER_VALIDATE_EMAIL)){
+                $this->addError('email', 'email must be a valid email address');
+            }
+        }
     }
 
 

@@ -1,12 +1,5 @@
 <?php 
     session_start();
-    include('../logic/main.php');
-
-    // if(count($_SESSION)>0 && array_key_exists("logged",$_SESSION) && $_SESSION["logged"]){
-    //     echo "da";
-    // }else{
-    //     echo "ne";
-    // }
 
 ?>
 
@@ -29,12 +22,12 @@
 
             <?php if($_SESSION["user_status"] != 1):?>
 
-                <?php include("../apis/selectUserKunde.php");?>
+                <?php include("./selectUserKunde-html.php");?>
 
 
             <?php else:?>
 
-                <?php include("../apis/selectAllKunde.php");?>
+                <?php include("./selectAllKunde-html.php");?>
 
             <?php endif?>
         </div>
