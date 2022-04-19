@@ -9,15 +9,15 @@
     <?php include("./header.php");?>
 
     <?php if(!(count($_SESSION)>0 && array_key_exists("logged",$_SESSION) && $_SESSION["logged"])):?>
-        <div class="displayFlex notLoggedIndex center">
+        <article class="displayFlex notLoggedIndex center">
             <h1>Please log in or register your account!</h1>
-        </div>
+        </article>
     <?php else:?>
 
         <!-- Include Div with user data deleted/Adder/Edited -->
         <?php include("./loggedUserData.php");?>
         <!--Div With data!-->
-        <div class="displayFlex notLoggedIndex" style="min-height: 750px;">
+        <article class="displayFlex notLoggedIndex" style="min-height: 750px;">
             <!-- Include div with two optin butons and addCustomer button -->
             <?php include("./indexTwoButtons.php");?>
             <!-- if user_status = 1 then include file with just Customers from one user  -->
@@ -31,7 +31,7 @@
                 <?php include("./selectAllKunde-html.php");?>
 
             <?php endif?>
-        </div>
+        </article>
     <?php endif?>
     <!-- Include footer at the end -->
     <?php include("./footer.php");?>

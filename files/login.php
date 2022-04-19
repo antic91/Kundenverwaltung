@@ -14,12 +14,11 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
     <!-- Include Header -->
     <?php include("./header.php");?>
     <!-- Wrapper div for form -->
-    <div class="displayFlex notLoggedIndex center" style="height: 550px;">
+    <section class="displayFlex notLoggedIndex center" style="min-height: 550px;">
         <!-- Form with Post request -->
         <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST" class="loginForm">
             
@@ -56,9 +55,9 @@
 
         </form>
             
-    </div>
+    </section>
 
 
     <?php include("./footer.php");?>
-</html>
+
 

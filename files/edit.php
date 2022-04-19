@@ -19,14 +19,13 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
     <!-- Include Header -->
 <?php include("./header.php");?>
 <!-- Include Div with user data deleted/Adder/Edited -->
 <?php include("./loggedUserData.php");?>
 
-<div class="displayFlex notLoggedIndex center" style="min-height: 750px;">
+<section class="displayFlex notLoggedIndex center" style="min-height: 750px;">
     <!-- Form Post Request EDIT-->
     <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST" class="loginForm">
         
@@ -118,7 +117,7 @@
     </form>
 
         
-</div>
+</section>
 
             
 

@@ -16,12 +16,11 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
     <!-- Include Header -->
     <?php include("./header.php");?>
     <!-- Wrapper for form -->
-    <div class="displayFlex notLoggedIndex center" style="height: 750px;">
+    <section class="displayFlex notLoggedIndex center" style="min-height: 650px;">
         <!-- Form Post to register -->
         <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST" class="loginForm">
             <!-- Enter Username Div -->
@@ -131,9 +130,8 @@
         </form>
 
             
-    </div>
+    </section>
 
 
 
     <?php include("./footer.php");?>
-</html>

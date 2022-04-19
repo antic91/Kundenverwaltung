@@ -14,11 +14,11 @@ class Validate{
         }else{
             $keyToShow = $key;
             if($key=="name" || $key = "lastName" || $key = "cPerson" || $key = "street" || $key = "town"){
-                if(!preg_match('/^[a-zA-Z]{0,150}$/',$val)){
+                if(!preg_match('/^[a-zA-Z ßüäÜÄöÖ-]{0,150}$/',$val)){
                     $this->addError("$keyToShow","$value must be 0-150 chars & alphabetic");
                 }
             }else{
-                if(!preg_match('/^[a-zA-Z]{6,12}$/',$val)){
+                if(!preg_match('/^[a-zA-Z ]{6,12}$/',$val)){
                     $this->addError("$keyToShow","$value must be 6-12 chars & alphabetic");
                 }
             }

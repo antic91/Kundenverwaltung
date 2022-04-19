@@ -9,10 +9,9 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
     <!-- Wraper -->
-    <div class="wrapperButtons displayFlex">
+    <section class="wrapperButtons displayFlex">
         <!-- Wrapper for two button userCustomers and AllCustomers -->
         <div class="wrapperButtonsForm displayFlex">
             <!-- Form for button All Customers -->
@@ -28,6 +27,5 @@
         <!-- Button to add new customer -->
         <button class="btn1 btnAdd" onclick="addCustomer()">Add New Customer</button>
 
-    </div>
-</html>
+    </section>
 

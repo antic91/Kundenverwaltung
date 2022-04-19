@@ -2,10 +2,9 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+>
     <!-- Wrapper div -->
-    <div class="wrapperData displayFlex">
+    <article class="wrapperData displayFlex">
         <!-- Div with number of Added Customers -->
         <div class="displayFlex child One">
             <h2>User Added:</h2>
@@ -21,5 +20,4 @@
             <h2>User Changed:</h2>
             <p><?php echo $_SESSION["user_edited"]?></p>
         </div>
-    </div>
-</html>
+    </article>

@@ -4,13 +4,12 @@ include_once("../apis/selectUserKunde.php");
     
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
 
         <!-- For each loop for array with Customers.... displayin every customer data in this divs under...s -->
 
         <?php foreach ($_SESSION["CustomersArray"] as $key => $customer): ?>
-            <div class="CusstomerData displayFlex">
+            <section class="CusstomerData displayFlex">
 
             
 
@@ -42,8 +41,8 @@ include_once("../apis/selectUserKunde.php");
                     <button type="button" class="btn btnRight" onclick="clickedEdit(<?php echo $customer['kun_id'];?>)"  <?php if($customer["user_id"] != $_SESSION["userData"]["user_id"]){echo "disabled";}?>>Edit</button>
                 </div>
 
-            </div>
+            </section>
         <?php endforeach?>
     
-</html>
+
 
